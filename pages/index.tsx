@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <div>
-      PICGRAM
-    </div>
+    <h1 className='text-3xl font-bold underline'>
+      PICGRAM WORKING
+    </h1>
   )
 }
