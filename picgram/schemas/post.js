@@ -17,14 +17,6 @@ export default {
         },
       },
       {
-        name: 'image',
-        title: 'Image',
-        type: 'file',
-        options: {
-          hotspot: true,
-        },
-      },
-      {
         name: 'userId',
         title: 'UserId',
         type: 'string',
