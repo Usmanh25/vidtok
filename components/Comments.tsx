@@ -36,7 +36,7 @@ const Comments = ({ comment, setComment, addComment, comments, isPostingComment 
                     <Link href={`/profile/${user._id}`}>
                       <div className='flex items-start gap-3'>
 
-                        <div className='w-8 h-8'>
+                        <div className='w-8 h-8 cursor-pointer'>
                           <Image
                             width={34}
                             height={34}
@@ -46,13 +46,10 @@ const Comments = ({ comment, setComment, addComment, comments, isPostingComment 
                             layout='responsive'
                           />
                         </div>
-                        <div className='hidden xl:block'>
+                        <div className='xl:block cursor-pointer'>
                           <p className='flex gap-1 items-center text-md font-bold text-primary lowercase'>
                             {user.userName.replaceAll(' ', '')}
                             <GoVerified className='text-blue-400' />
-                          </p>
-                          <p className='capitalize text-gray-400 text-xs'>
-                            {user.userName}
                           </p>
                         </div>
                       </div>
