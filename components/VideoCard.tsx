@@ -40,14 +40,12 @@ const VideoCard: NextPage<IProps> = ({post}) => {
           <div>
             <div className='flex gap-3 p-2 cursor-pointer font-semibold rounded '>
               <div className='md:w-16 md:h-16 w-10 h-10'>
-                {/* <Link href='/'> */}
                 <Link href={`/profile/${post.postedBy._id}`}>
                   <>
                     <Image
                       width={62}
                       height={62}
                       className=' rounded-full'
-                    //   src={postedBy?.image}
                       src={post.postedBy.image}
                       alt='profile photo'
                       layout='responsive'
@@ -67,9 +65,6 @@ const VideoCard: NextPage<IProps> = ({post}) => {
                     </p>
                   </div>
                 </Link>
-                {/* <Link href='/'>
-                  <p className='mt-2 font-normal '>{caption}</p>
-                </Link> */}
               </div>
             </div>
           </div>
@@ -85,14 +80,13 @@ const VideoCard: NextPage<IProps> = ({post}) => {
                   loop
                   ref={videoRef}
                   src={post.video.asset.url}
-                  className='lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-gray-100'
-                >
-                    
+                  className='lg:w-[300px] h-[300px] md:h-[300px] lg:h-[528px] w-[170px] rounded-2xl cursor-pointer bg-gray-100'
+                >  
                 </video>
               </Link>
     
               {isHover && (
-                <div className='absolute bottom-6 cursor-pointer left-8 md:left-14 lg:left-0 flex gap-10 lg:justify-between w-[100px] md:w-[50px] lg:w-[600px] p-3'>
+                <div className='absolute bottom-6 cursor-pointer left-8 md:left-8 lg:left-0 flex gap-10 lg:justify-between w-[100px] md:w-[150px] lg:w-[300px] p-3'>
                   {playing ? (
                     <button onClick={onVideoPress}>
                       <BsFillPauseFill className='text-black text-2xl lg:text-4xl' />

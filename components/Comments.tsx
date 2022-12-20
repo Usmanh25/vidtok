@@ -24,7 +24,6 @@ interface IComment {
 
 const Comments = ({ comment, setComment, addComment, comments, isPostingComment }: IProps) => {
   const { userProfile, allUsers } = useAuthStore();
-    // const { allUsers, userProfile }: any = useAuthStore();
 
   return (
     <div className='border-t-2 border-gray-200 pt-4 px-10 mt-4 bg-[#F8F8F8] border-b-2 lg:pb-0 pb-[100px]'>
@@ -50,7 +49,6 @@ const Comments = ({ comment, setComment, addComment, comments, isPostingComment 
                         </div>
                         <div className='hidden xl:block'>
                           <p className='flex gap-1 items-center text-md font-bold text-primary lowercase'>
-                            {/* {user.userName.replace(/\s+/g, '')}{' '} */}
                             {user.userName.replaceAll(' ', '')}
                             <GoVerified className='text-blue-400' />
                           </p>

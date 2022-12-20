@@ -1,35 +1,31 @@
-import { BsCode, BsEmojiSunglasses } from 'react-icons/bs';
-import { GiCakeSlice, GiGalaxy, GiLipstick } from 'react-icons/gi';
-import { FaPaw, FaMedal, FaGamepad } from 'react-icons/fa';
+import { BsEmojiLaughing, BsController } from 'react-icons/bs';
+import { GiHamburger, GiMeshBall, GiComb, GiFlatPawPrint } from 'react-icons/gi';
+import { FaMedal } from 'react-icons/fa';
 
 export const topics = [
   {
-    name: 'development',
-    icon: <BsCode />,
-  },
-  {
     name: 'comedy',
-    icon: <BsEmojiSunglasses />,
+    icon: <BsEmojiLaughing />,
   },
   {
     name: 'gaming',
-    icon: <FaGamepad />,
+    icon: <BsController />,
   },
   {
     name: 'food',
-    icon: <GiCakeSlice />,
+    icon: <GiHamburger />,
   },
   {
     name: 'dance',
-    icon: <GiGalaxy />,
+    icon: <GiMeshBall />,
   },
   {
     name: 'beauty',
-    icon: <GiLipstick />,
+    icon: <GiComb />,
   },
   {
     name: 'animals',
-    icon: <FaPaw />,
+    icon: <GiFlatPawPrint />,
   },
   {
     name: 'sports',
@@ -37,6 +33,6 @@ export const topics = [
   },
 ];
 
-export const footerList1 = ['About', 'Newsroom', 'Store', 'Contact', 'Carrers', 'ByteDance', 'Creator Directory']
-export const footerList2 = [ 'TikTik for Good','Advertise','Developers','Transparency','TikTik Rewards' ]
+export const footerList1 = ['About', 'Newsroom', 'Contact', 'Careers', 'ByteDance']
+export const footerList2 = [ 'VidTok for Good', 'Advertise', 'Developers', 'Transparency','VidTok Rewards', 'VidTok Browse', 'VidTok Embeds' ]
 export const footerList3 = [ 'Help', 'Safety', 'Terms', 'Privacy', 'Creator Portal', 'Community Guidelines' ]

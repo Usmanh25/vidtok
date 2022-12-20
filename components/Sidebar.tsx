@@ -8,15 +8,16 @@ import { ImCancelCircle } from 'react-icons/im'
 import Discover from './Discover'
 import SuggestedAccounts from './SuggestedAccounts'
 import Footer from './Footer'
+import ViewCreator from './ViewCreator'
+import useAuthStore from '../store/authStore'
 
 const Sidebar = () => {
-
     const userProfile = false
     const [showSidebar, setShowSidebar] = useState(true)
-    const normalLink = 'flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#F51997] rounded'
+    const normalLink = 'flex items-center gap-3 hover:bg-primary p-3 justify-center xl:justify-start cursor-pointer font-semibold text-[#fe2c55] rounded'
   return (
     <div>
-        <div className='block xl:hidden m-2 ml-4 mt-3 text-xl'
+        <div className='block cursor-pointer xl:hidden m-2 ml-7 mt-3 text-xl'
              onClick = {() => setShowSidebar((prev) => !prev)}>
             {showSidebar ? <ImCancelCircle/> : <AiOutlineMenu/>}
         </div>
@@ -33,9 +34,11 @@ const Sidebar = () => {
                             </span>
                         </div>
                     </Link>
+
                 </div>
                 
 
+                <ViewCreator/>
                 <Discover/>
                 <SuggestedAccounts/>
                 <Footer/>

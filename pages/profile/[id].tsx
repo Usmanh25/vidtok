@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { GoVerified } from 'react-icons/go';
 import axios from 'axios';
-
+import { GoVerified } from 'react-icons/go';
 import VideoCard from '../../components/VideoCard';
 import NoResults from '../../components/NoResults';
 import { IUser, Video } from '../../types';
 import { BASE_URL } from '../../utils';
-
 
 interface IProps {
   data: {
@@ -50,7 +48,6 @@ const Profile = ({ data }: IProps) => {
 
             <div className='flex flex-col justify-center'>
               <p className='md:text-2xl tracking-wider flex gap-1 justify-center items-center text-md font-bold text-primary lowercase'>
-                {/* {user.userName.replace(/\s+/g, '')}{' '} */}
                 {user.userName.replaceAll(' ', '')}
                 <GoVerified className='text-blue-400' />
               </p>
@@ -68,6 +65,7 @@ const Profile = ({ data }: IProps) => {
           <p className={`text-xl font-semibold cursor-pointer mt-2 ${liked}`}
               onClick={() => setShowUserVideos(false)}>Liked</p>
         </div>
+
         <div className='flex gap-6 flex-wrap md:justify-start'>
           {videosList.length > 0 ? (
             videosList.map((post: Video, idx: number) => (
@@ -79,15 +77,16 @@ const Profile = ({ data }: IProps) => {
             />
           )}
         </div>
+        
       </div>
     </div>
   )
 }
 
 export const getServerSideProps = async ({
-  params: { id },
+  params: { id }
 }: {
-  params: { id: string };
+  params: { id: string }
 }) => {
   const res = await axios.get(`${BASE_URL}/api/profile/${id}`);
 

@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import axios from 'axios';
 import { useRouter } from 'next/router';
 import { GoVerified } from 'react-icons/go';
 import { MdOutlineCancel } from 'react-icons/md';
 import { BsFillPlayFill } from 'react-icons/bs';
 import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi';
-import axios from 'axios';
 import { BASE_URL } from '../../utils'
 import { Video } from '../../types';
 import useAuthStore from '../../store/authStore'
@@ -16,8 +16,6 @@ import Comments from '../../components/Comments';
 interface IProps {
   postDetails: Video;
 }
-
-
 
 const Detail = ({postDetails} : IProps) => {
 
@@ -140,7 +138,7 @@ const Detail = ({postDetails} : IProps) => {
               </div>
               <div>
                 <Link href={`/profile/${post.postedBy._id}`}>
-                  <div className='mt-3 flex-col gap-2'>
+                  <div className='cursor-pointer mt-3 flex-col gap-2'>
                     <p className='flex gap-2 items-center md:text-md font-bold text-primary'>
                       {post.postedBy.userName}{' '}
                       <GoVerified className='text-blue-400 text-md' />
@@ -172,15 +170,11 @@ const Detail = ({postDetails} : IProps) => {
               addComment={addComment}
               isPostingComment={isPostingComment}
               comments={post.comments}
-            
             />
 
         </div>
 
-
       </div>
-
-
 
     </div>
   )

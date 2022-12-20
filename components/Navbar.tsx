@@ -6,9 +6,10 @@ import { AiOutlineLogout } from 'react-icons/ai'
 import { BiSearch } from 'react-icons/bi'
 import { GoogleLogin, googleLogout} from '@react-oauth/google'
 import { IoMdAdd } from 'react-icons/io'
-import Logo from '../utils/picgram-logo.png'
+import Logo from '../utils/vidtok-logo.png'
 import { createOrGetUser } from '../utils'
 import useAuthStore from '../store/authStore'
+
 
 const Navbar = () => {
 
@@ -30,7 +31,7 @@ const Navbar = () => {
                 <Image
                     className='cursor-pointer'
                     src={Logo}
-                    alt='picgram'
+                    alt='logo'
                     layout='responsive'
                 />
             </div>
@@ -81,21 +82,23 @@ const Navbar = () => {
                   </Link>
                 )} 
                 <button
-                type='button'
-                className='px-2'
-                onClick={() => {
-                  googleLogout();
-                  removeUser();
-                }}
+                  type='button'
+                  className='px-2'
+                  onClick={() => {
+                    googleLogout();
+                    removeUser();
+                    router.push('/');
+                  }}
                 >
                   <AiOutlineLogout color='red' fontSize={21}/>
                 </button>
             </div>
           ) : (
-            <GoogleLogin
-              onSuccess={(response) => console.log(createOrGetUser(response, addUser))}
-              onError = {() => console.log('Error')}
-            />
+            <div>
+              <GoogleLogin
+                onSuccess={(response) => console.log(createOrGetUser(response, addUser))}
+                onError={() => {console.log('Login Failed')}}/>
+            </div>
           )}
         </div>
     </div>

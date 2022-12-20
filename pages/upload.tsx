@@ -1,14 +1,14 @@
-
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 import { FaCloudUploadAlt } from 'react-icons/fa';
 import { MdDelete } from 'react-icons/md';
-import axios from 'axios';
 import { SanityAssetDocument } from '@sanity/client';
 import {topics} from '../utils/constants'
 import useAuthStore from '../store/authStore';
 import { client } from '../utils/client';
 import { BASE_URL } from '../utils'
+
 const Upload = () => {
 
     const [isLoading, setIsLoading] = useState(false)
@@ -24,10 +24,7 @@ const Upload = () => {
         const selectedFile = e.target.files[0];
         const fileTypes = ['video/mp4', 'video/webm', 'video/ogg'];
     
-        // uploading asset to sanity
         if (fileTypes.includes(selectedFile.type)) {
-        //   setWrongFileType(false);
-        //   setIsLoading(true);
             client.assets.upload('file', selectedFile, {
                 contentType: selectedFile.type,
                 filename: selectedFile.name
@@ -37,16 +34,7 @@ const Upload = () => {
                 setVideoAsset(data)
                 setIsLoading(false)
             })
-    
-        //   client.assets
-        //     .upload('file', selectedFile, {
-        //       contentType: selectedFile.type,
-        //       filename: selectedFile.name,
-        //     })
-        //     .then((data) => {
-        //       setVideoAsset(data);
-        //       setIsLoading(false);
-        //     });
+
         } else {
           setIsLoading(false);
           setWrongFileType(true);
@@ -126,7 +114,6 @@ const Upload = () => {
                                                                 type='file'
                                                                 name='upload-video'
                                                                 onChange={(e) => uploadVideo(e)}
-                                                                // onChange={uploadVideo}
                                                                 className='w-0 h-0'
                                                             />
                                                         </label>

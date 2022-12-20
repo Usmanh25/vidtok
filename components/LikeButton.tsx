@@ -6,7 +6,6 @@ import useAuthStore from '../store/authStore';
 
 interface IProps {
   likes: any[];
-//   flex: string;
   handleLike: () => void;
   handleDislike: () => void;
 }
