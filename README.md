@@ -95,8 +95,6 @@ Users can interact with one another by entering comments into the comment box on
 
 <img src="utils/comments1.png" align=top style="width:300px;"></img>
 
-<img src="utils/comments2.png" align=top style="width:300px;"></img>
-
 ## Future Features
 * Following between users
 * Liking Comments 
