@@ -91,7 +91,7 @@ Users can upload videos to VidTok, providing a caption and selecting a topic. Th
 
 ## Creating Comments
 
-Users can interact with one another by entering comments into the comment box on any video page.
+A user can interact with another by entering comments into the comment box on any video page.
 
 <img src="utils/comments1.png" align=top style="width:300px;"></img>
 
