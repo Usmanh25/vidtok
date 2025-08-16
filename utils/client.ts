@@ -1,9 +1,9 @@
-import sanityClient from '@sanity/client';
+import sanityClient from '@sanity/client'
 
 export const client = sanityClient({
   projectId: 'tc69cz7a',
   dataset: 'production',
-  apiVersion: '2022-03-10',
+  apiVersion: '2023-01-01',
   useCdn: false,
-  token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
-});
+  token: process.env.SANITY_API_TOKEN,
+})

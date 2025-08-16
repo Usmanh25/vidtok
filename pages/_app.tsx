@@ -1,35 +1,41 @@
-import { useState, useEffect } from 'react'
-import type { AppProps } from 'next/app'
-import { GoogleOAuthProvider } from '@react-oauth/google'
-import Navbar from '../components/Navbar'
-import Sidebar from '../components/Sidebar'
-import '../styles/globals.css'
+// pages/_app.tsx
+import { useEffect, useState } from 'react';
+import type { AppProps } from 'next/app';
+import useAuthStore from '../store/authStore';
+import Navbar from '../components/Navbar';
+import Sidebar from '../components/Sidebar';
+import '../styles/globals.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-
-  const [isSSR, setIsSSR] = useState(true)
+  const [isSSR, setIsSSR] = useState(true);
+  const checkAuth = useAuthStore((state) => state.checkAuth);
 
   useEffect(() => {
     setIsSSR(false);
+    checkAuth();
   }, []);
 
-  if(isSSR) return null
+  if (isSSR) return null;
 
   return (
-    <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}>
-      <div className='xl:w-[1200px] m-auto overflow-hidden h-[100vh]'>
-        <Navbar/>
-        <div className='flex gap-6 md:gap-20'>
-          <div className='h-[92vh] overflow-hidden xl:hover:overflow-auto'>
-            <Sidebar />
-          </div>
-          <div className='mt-4 flex flex-col gap-10 overflow-auto h-[88vh] images flex-1'>
-            <Component {...pageProps} />
-          </div>
+    <div className="xl:w-[1200px] m-auto h-[100vh] flex">
+      {/* Sidebar */}
+      <div className="hidden xl:block sticky top-0 h-screen w-[240px] z-0">
+        <Sidebar />
+      </div>
+
+      {/* Main content area */}
+      <div className="flex-1 flex flex-col overflow-auto relative">
+        {/* Navbar */}
+        <Navbar />
+
+        {/* Page content */}
+        <div className="mt-4 flex flex-col gap-10 relative z-20">
+          <Component {...pageProps} />
         </div>
       </div>
-    </GoogleOAuthProvider>
-  ) 
-}
+    </div>
+  );
+};
 
-export default MyApp
+export default MyApp;

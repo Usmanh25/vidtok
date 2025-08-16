@@ -20,7 +20,10 @@ const Search = ({ videos }: { videos: Video[] }) => {
   
     const accounts = isAccounts ? 'border-b-2 border-black' : 'text-gray-400';
     const isVideos = !isAccounts ? 'border-b-2 border-black' : 'text-gray-400';
-    const searchedAccounts = allUsers.filter((user: IUser) => user.userName.toLowerCase().includes(searchTerm.toLowerCase()));
+    const searchedAccounts = allUsers.filter((user: IUser) => 
+        user?.username?.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
 
     return (
         <div className='w-full'>
@@ -48,11 +51,11 @@ const Search = ({ videos }: { videos: Video[] }) => {
                                         </div>
                                         <div className='hidden xl:block'>
                                         <p className='flex gap-1 items-center text-md font-bold text-primary lowercase'>
-                                            {user.userName.replaceAll(' ', '')}
+                                            {user.username.replaceAll(' ', '')}
                                             <GoVerified className='text-blue-400' />
                                         </p>
                                         <p className='capitalize text-gray-400 text-xs'>
-                                            {user.userName}
+                                            {user.username}
                                         </p>
                                         </div>
                                     </div>
